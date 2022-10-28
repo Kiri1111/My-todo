@@ -41,7 +41,7 @@ function App() {
 
     return (
         <div className="App">
-            <Button name={'Show me'} callBack={showUP}/>
+            <Button name={'Showww me'} callBack={showUP}/>
             <Button name={'clean'} callBack={clean}/>
 
             <ul>
