@@ -18,15 +18,8 @@ const Map = (props: StudentsPropsType) => {
             <h1>Students</h1>
             <div>
                 <ul>
-                    {props.students.map((s) => {
-                        return (
-                            <li key={s.id}>
-                                <span>{s.name}</span>
-                                <span> age:{s.age}</span>
-                            </li>
-                        )
-                    })}
-
+                    {props.students.map(s =>
+                        <li key={s.id}><span>{s.name}</span><span> age: {s.age}</span></li>)}
                 </ul>
             </div>
         </div>
