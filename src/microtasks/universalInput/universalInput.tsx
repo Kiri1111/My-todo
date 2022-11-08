@@ -1,4 +1,4 @@
-import React, {ChangeEvent, KeyboardEvent} from 'react';
+import React, {ChangeEvent, FC, KeyboardEvent} from 'react';
 import s from '../map.module.css'
 
 
@@ -9,18 +9,18 @@ type PropsInputType = {
     error: string | null
 }
 
-const UniversalInput = (props: PropsInputType) => {
+const UniversalInput: FC<PropsInputType> = ({callBackInput, value, onKeyPress, error}) => {
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        props.callBackInput(e)
+        callBackInput(e)
     }
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        props.onKeyPress(e)
+        onKeyPress(e)
     }
     return (
         <div>
             <input
-                className={props.error ? s.error : ''}
-                value={props.value}
+                className={error ? s.error : ''}
+                value={value}
                 onChange={onChangeHandler}
                 onKeyPress={onKeyPressHandler}
             />

@@ -8,6 +8,7 @@ export type Student = {
     id: string
     name: string
     kurs: number
+    study: boolean
 }
 
 export type StudentsPropsType = {
@@ -15,6 +16,8 @@ export type StudentsPropsType = {
     addStudents: (name: string) => void
     changeFilter: (value: FilterValueType) => void
     deleteStudent: (studID: string) => void
+    filter: FilterValueType
+    changeStudyStatus: (changeId: string, event: boolean) => void
     // students: Array<Student>
 }
 
@@ -55,34 +58,56 @@ function Map(props: StudentsPropsType) {
         <div>
             <h1>Студенты:</h1>
             <div>
-                {/*<input value={name} onChange={onchangeHandler}*/}
-                {/*       onKeyPress={onKeyPressHandler}/>*/}
                 <UniversalInput callBackInput={onchangeHandler}
                                 value={name}
                                 onKeyPress={onKeyPressHandler}
                                 error={error}
                 />
                 <UniversalButton callBackButton={onClickHandler}
-                                 title={'Добавить'}/>
+                                 title={'Добавить'}
+                                 name={''}
+                />
                 {error && <div className={s.errorMessage}>{error}</div>}
                 <ul>
                     {
-                        props.students.map(s => {
+                        props.students.map(st => {
                             const deleteHandler = () => {
-                                props.deleteStudent(s.id)
+                                props.deleteStudent(st.id)
                             }
-                            return <li key={s.id}>
-                                <span>Name: {s.name},</span>
-                                <span> Kurs: {s.kurs}</span>
-                                <UniversalButton title={'Удалить'} callBackButton={deleteHandler}/>
+                            const checkBoxHandler = (e: ChangeEvent<HTMLInputElement>) => {
+                                props.changeStudyStatus(st.id, e.currentTarget.checked)
+                            }
+                            return <li key={st.id} className={st.study ? s.study : ''}>
+                                <input type={"checkbox"}
+                                       checked={st.study}
+                                       onChange={checkBoxHandler}
+                                />
+                                <span>Name: {st.name},</span>
+                                <span> Kurs: {st.kurs}</span>
+                                <UniversalButton title={'Удалить'}
+                                                 callBackButton={deleteHandler}
+                                                 name={''}
+                                />
                             </li>
                         })
                     }
                 </ul>
                 <div>
-                    <UniversalButton callBackButton={onClick1Filter} title={'1 Курс'}/>
-                    <UniversalButton callBackButton={onClick2Filter} title={'2 Курс'}/>
-                    <UniversalButton callBackButton={onClickAllFilter} title={'Все'}/>
+                    <UniversalButton callBackButton={onClick1Filter}
+                                     title={'1 Курс'}
+                                     filter={props.filter}
+                                     name={'1'}
+                    />
+                    <UniversalButton callBackButton={onClick2Filter}
+                                     title={'2 Курс'}
+                                     filter={props.filter}
+                                     name={'2'}
+                    />
+                    <UniversalButton callBackButton={onClickAllFilter}
+                                     title={'Все'}
+                                     filter={props.filter}
+                                     name={'all'}
+                    />
                 </div>
             </div>
         </div>

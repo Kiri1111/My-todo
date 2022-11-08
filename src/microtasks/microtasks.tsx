@@ -8,16 +8,16 @@ export type FilterValueType = 'all' | '1' | '2'
 const Microtasks = () => {
 
     let [students, setStudents] = useState([
-        {id: v1(), name: 'Bob', kurs: 2},
-        {id: v1(), name: 'John', kurs: 2},
-        {id: v1(), name: 'Den', kurs: 1},
-        {id: v1(), name: 'Alex', kurs: 2},
-        {id: v1(), name: 'Viktor', kurs: 2},
-        {id: v1(), name: 'Rudy', kurs: 1},
+        {id: v1(), name: 'Bob', kurs: 2, study: true},
+        {id: v1(), name: 'John', kurs: 2, study: true},
+        {id: v1(), name: 'Den', kurs: 1, study: false},
+        {id: v1(), name: 'Alex', kurs: 2, study: true},
+        {id: v1(), name: 'Viktor', kurs: 2, study: true},
+        {id: v1(), name: 'Rudy', kurs: 1, study: true},
     ])
 
     function addStudents(name: string) {
-        let student = {id: v1(), name: name, kurs: 1}
+        let student = {id: v1(), name: name, kurs: 1, study: false}
         setStudents([student, ...students])
     }
 
@@ -39,12 +39,19 @@ const Microtasks = () => {
         setFilter(value);
     }
 
+    function changeStudyStatus(changeId: string, event: boolean) {
+        setStudents(students.map(st => st.id === changeId ? {...st, study: event} : st))
+
+    }
+
     return (
         <div>
             <Map students={studentsFiltered}
                  addStudents={addStudents}
                  changeFilter={changeFilter}
                  deleteStudent={deleteStudent}
+                 filter={filter}
+                 changeStudyStatus={changeStudyStatus}
             />
         </div>
     );

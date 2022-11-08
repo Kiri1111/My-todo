@@ -5,3 +5,15 @@
 .errorMessage {
     color: red;
 }
+
+.activeButton {
+    background-color: #61dafb;
+}
+
+.button {
+    background-color: #c9d8f5;
+}
+
+.study {
+    opacity: 0.5;
+}
