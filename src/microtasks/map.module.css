@@ -1,14 +1,7 @@
-.cars {
-
-
+.error {
+    border: 1px solid red;
 }
 
-.manufacturer {
-    border: 1px solid black;
-    padding: 5px;
-}
-
-.model {
-    border: 1px solid black;
-    padding: 5px;
+.errorMessage {
+    color: red;
 }

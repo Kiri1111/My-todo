@@ -1,38 +1,50 @@
 import React, {useState} from 'react';
 import Map from "./map";
-import MapTask from './map-task';
-import TopCarsType from './map-task'
 import {v1} from "uuid";
+
+
+export type FilterValueType = 'all' | '1' | '2'
 
 const Microtasks = () => {
 
-    const [topCars, setTopCars] = useState([
-        {id: v1(), manufacturer: 'BMW', model: 'm5cs'},
-        {id: v1(), manufacturer: 'Mercedes', model: 'e63s'},
-        {id: v1(), manufacturer: 'Audi', model: 'rs6'}
+    let [students, setStudents] = useState([
+        {id: v1(), name: 'Bob', kurs: 2},
+        {id: v1(), name: 'John', kurs: 2},
+        {id: v1(), name: 'Den', kurs: 1},
+        {id: v1(), name: 'Alex', kurs: 2},
+        {id: v1(), name: 'Viktor', kurs: 2},
+        {id: v1(), name: 'Rudy', kurs: 1},
     ])
 
-
-    const students = [
-        {id: 1, name: 'Bob', age: 18},
-        {id: 2, name: 'John', age: 26},
-        {id: 3, name: 'Den', age: 23},
-        {id: 4, name: 'Alex', age: 40},
-        {id: 5, name: 'Viktor', age: 48},
-        {id: 6, name: 'Rudy', age: 55},
-    ]
-
-    function delCar(callId: string) {
-        let filteredCars = topCars.filter(t => t.id != callId);
-        setTopCars(filteredCars)
+    function addStudents(name: string) {
+        let student = {id: v1(), name: name, kurs: 1}
+        setStudents([student, ...students])
     }
 
+    function deleteStudent(studID: string) {
+        let filteredStudents = students.filter(st => st.id !== studID)
+        setStudents(filteredStudents)
+    }
+
+    let [filter, setFilter] = useState<FilterValueType>('all')
+    let studentsFiltered = students;
+    if (filter === '1') {
+        studentsFiltered = studentsFiltered.filter(st => st.kurs === 1);
+    }
+    if (filter === '2') {
+        studentsFiltered = studentsFiltered.filter(st => st.kurs === 2);
+    }
+
+    function changeFilter(value: FilterValueType) {
+        setFilter(value);
+    }
 
     return (
         <div>
-            <Map students={students}/>
-            <MapTask topCars={topCars}
-                     delCar={delCar}
+            <Map students={studentsFiltered}
+                 addStudents={addStudents}
+                 changeFilter={changeFilter}
+                 deleteStudent={deleteStudent}
             />
         </div>
     );
