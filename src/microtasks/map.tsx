@@ -12,13 +12,18 @@ export type Student = {
 }
 
 export type StudentsPropsType = {
+    deleteTodo: (listsId: string) => void
+    listsId: string
+    title: string
     students: Student[]
-    addStudents: (name: string) => void
-    changeFilter: (value: FilterValueType) => void
-    deleteStudent: (studID: string) => void
+    addStudents: (listId: string, name: string) => void
+    changeFilter: (listId: string, value: FilterValueType) => void
+    deleteStudent: (studID: string, listId: string) => void
     filter: FilterValueType
-    changeStudyStatus: (changeId: string, event: boolean) => void
+    changeStudyStatus: (listId: string, changeId: string, event: boolean) => void
     // students: Array<Student>
+
+    //bla: (param1: number, param2: boolean, param3: string) => void
 }
 
 function Map(props: StudentsPropsType) {
@@ -31,7 +36,7 @@ function Map(props: StudentsPropsType) {
 
     const onClickHandler = () => {
         if (name !== '') {
-            props.addStudents(name.trim())
+            props.addStudents(props.listsId, name.trim())
             setName('')
         } else {
             setError('Введите имя!')
@@ -46,17 +51,24 @@ function Map(props: StudentsPropsType) {
     }
 
     const onClick1Filter = () => {
-        props.changeFilter('1');
+        props.changeFilter(props.listsId, '1');
     }
     const onClick2Filter = () => {
-        props.changeFilter('2');
+        props.changeFilter(props.listsId, '2');
     }
     const onClickAllFilter = () => {
-        props.changeFilter('all');
+        props.changeFilter(props.listsId, 'all');
+    }
+
+    const deleteTodoHandler = () => {
+        props.deleteTodo(props.listsId)
     }
     return (
         <div>
-            <h1>Студенты:</h1>
+            <h1>
+                {props.title}
+                <UniversalButton callBackButton={deleteTodoHandler} title={'Удалить'} name={''}/>
+            </h1>
             <div>
                 <UniversalInput callBackInput={onchangeHandler}
                                 value={name}
@@ -72,10 +84,11 @@ function Map(props: StudentsPropsType) {
                     {
                         props.students.map(st => {
                             const deleteHandler = () => {
-                                props.deleteStudent(st.id)
+                                props.deleteStudent(props.listsId, st.id)
                             }
                             const checkBoxHandler = (e: ChangeEvent<HTMLInputElement>) => {
-                                props.changeStudyStatus(st.id, e.currentTarget.checked)
+                                debugger
+                                props.changeStudyStatus(props.listsId, st.id, e.currentTarget.checked)
                             }
                             return <li key={st.id} className={st.study ? s.study : ''}>
                                 <input type={"checkbox"}
