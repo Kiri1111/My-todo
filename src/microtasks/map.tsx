@@ -2,7 +2,7 @@ import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import {FilterValueType} from './microtasks'
 import UniversalButton from "./universalButton/universalButton";
 import UniversalInput from "./universalInput/universalInput";
-import s from './map.module.css'
+import sMap from './map.module.css'
 
 export type Student = {
     id: string
@@ -64,7 +64,7 @@ function Map(props: StudentsPropsType) {
         props.deleteTodo(props.listsId)
     }
     return (
-        <div>
+        <div className={sMap.map}>
             <h1>
                 {props.title}
                 <UniversalButton callBackButton={deleteTodoHandler} title={'Удалить'} name={''}/>
@@ -79,8 +79,8 @@ function Map(props: StudentsPropsType) {
                                  title={'Добавить'}
                                  name={''}
                 />
-                {error && <div className={s.errorMessage}>{error}</div>}
-                <ul>
+                {error && <div className={sMap.errorMessage}>{error}</div>}
+                <ul className={sMap.ul}>
                     {
                         props.students.map(st => {
                             const deleteHandler = () => {
@@ -90,7 +90,7 @@ function Map(props: StudentsPropsType) {
                                 debugger
                                 props.changeStudyStatus(props.listsId, st.id, e.currentTarget.checked)
                             }
-                            return <li key={st.id} className={st.study ? s.study : ''}>
+                            return <li key={st.id} className={st.study ? sMap.study : ''}>
                                 <input type={"checkbox"}
                                        checked={st.study}
                                        onChange={checkBoxHandler}

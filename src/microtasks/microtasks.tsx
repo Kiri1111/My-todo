@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Map from "./map";
 import {v1} from "uuid";
 import {Student} from "./map";
+import s from './microtask.module.css'
 
 export type FilterValueType = 'all' | '1' | '2'
 type List = {
@@ -74,7 +75,7 @@ const Microtasks = () => {
     }
 
     return (
-        <div>
+        <div className={s.listAll}>
             {lists.map(ls => {
                 let studentsFiltered = students[ls.id];
                 if (ls.filter === '1') {
@@ -85,18 +86,20 @@ const Microtasks = () => {
                 }
 
                 return (
-                    <Map
-                        deleteTodo={deleteTodo}
-                        listsId={ls.id}
-                        key={ls.id}
-                        title={ls.title}
-                        students={studentsFiltered}
-                        addStudents={addStudents}
-                        changeFilter={changeFilter}
-                        deleteStudent={deleteStudent}
-                        filter={ls.filter}
-                        changeStudyStatus={changeStudyStatus}
-                    />
+                    <div>
+                        <Map
+                            deleteTodo={deleteTodo}
+                            listsId={ls.id}
+                            key={ls.id}
+                            title={ls.title}
+                            students={studentsFiltered}
+                            addStudents={addStudents}
+                            changeFilter={changeFilter}
+                            deleteStudent={deleteStudent}
+                            filter={ls.filter}
+                            changeStudyStatus={changeStudyStatus}
+                        />
+                    </div>
                 )
             })}
 

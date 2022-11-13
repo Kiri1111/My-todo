@@ -17,3 +17,23 @@
 .study {
     opacity: 0.5;
 }
+
+.ul {
+    
+    background-color: rgba(87, 180, 188, 0.79);
+    width: 240px;
+    margin: 10px;
+    border-radius: 10px;
+
+}
+
+.map {
+
+    border-radius: 30px;
+    background-color: #1D515E;
+    position: relative;
+    top: 50px;
+    height: auto;
+    width: 300px;
+    box-shadow: 20px 20px rgba(74, 102, 103, 0.37);
+}
