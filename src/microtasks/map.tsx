@@ -21,9 +21,6 @@ export type StudentsPropsType = {
     deleteStudent: (studID: string, listId: string) => void
     filter: FilterValueType
     changeStudyStatus: (listId: string, changeId: string, event: boolean) => void
-    // students: Array<Student>
-
-    //bla: (param1: number, param2: boolean, param3: string) => void
 }
 
 function Map(props: StudentsPropsType) {
