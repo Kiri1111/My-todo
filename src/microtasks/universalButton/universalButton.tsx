@@ -10,7 +10,7 @@ type PropsType = {
     name?: string
 
 }
-const UniversalButton: FC<PropsType> = ({callBackButton, name, title, filter}) => {
+export const UniversalButton: FC<PropsType> = ({callBackButton, name, title, filter}) => {
 
     const onClickHandler = () => {
         callBackButton()
@@ -29,4 +29,3 @@ const UniversalButton: FC<PropsType> = ({callBackButton, name, title, filter}) =
     );
 };
 
-export default UniversalButton;

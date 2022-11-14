@@ -28,17 +28,13 @@ const Microtasks = () => {
             {id: v1(), name: 'Bob', kurs: 2, study: true},
             {id: v1(), name: 'John', kurs: 2, study: true},
             {id: v1(), name: 'Den', kurs: 1, study: false},
-            {id: v1(), name: 'Alex', kurs: 2, study: true},
-            {id: v1(), name: 'Viktor', kurs: 2, study: true},
-            {id: v1(), name: 'Rudy', kurs: 1, study: true}
+
         ],
         [listId2]: [
             {id: v1(), name: 'Bob', kurs: 2, study: true},
             {id: v1(), name: 'John', kurs: 2, study: true},
             {id: v1(), name: 'Den', kurs: 1, study: false},
-            {id: v1(), name: 'Alex', kurs: 2, study: true},
-            {id: v1(), name: 'Viktor', kurs: 2, study: true},
-            {id: v1(), name: 'Rudy', kurs: 1, study: true}
+
         ]
     })
 

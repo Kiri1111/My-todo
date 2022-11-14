@@ -1,6 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import {FilterValueType} from './microtasks'
-import UniversalButton from "./universalButton/universalButton";
+import {UniversalButton} from "./universalButton/universalButton";
 import UniversalInput from "./universalInput/universalInput";
 import sMap from './map.module.css'
 
