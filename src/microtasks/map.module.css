@@ -19,7 +19,7 @@
 }
 
 .ul {
-    
+
     background-color: rgba(87, 180, 188, 0.79);
     width: 240px;
     margin: 10px;
@@ -36,4 +36,8 @@
     height: auto;
     width: 300px;
     box-shadow: 20px 20px rgba(74, 102, 103, 0.37);
+}
+
+.filter {
+    text-align: center;
 }
