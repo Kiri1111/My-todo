@@ -39,13 +39,14 @@ function Map(props: StudentsPropsType) {
     }
     return (
         <div className={sMap.map}>
-            <h1>
+            <h1 className={sMap.nameTask}>
                 <SpanInput callBack={updateTitleListsHandler} name={props.title}/>
                 <UniversalButton callBackButton={deleteTodoHandler} title={'Удалить'} name={''}/>
             </h1>
             <div>
-                <AddItemForm callBack={addStudentHandler}/>
-
+                <div className={sMap.addTask}>
+                    <AddItemForm callBack={addStudentHandler}/>
+                </div>
                 <ul className={sMap.ul}>
                     {
                         props.students.map(st => {

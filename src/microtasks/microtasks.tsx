@@ -21,20 +21,20 @@ let listId2 = v1()
 type ListsType = Array<List>
 const Microtasks = () => {
     let [lists, setLists] = useState<ListsType>([
-        {id: listId1, title: 'Студенты', filter: 'all'},
-        {id: listId2, title: 'Абитуриенты', filter: 'all'},
+        // {id: listId1, title: 'Студенты', filter: 'all'},
+        // {id: listId2, title: 'Абитуриенты', filter: 'all'},
     ])
     let [students, setStudents] = useState<StudArrType>({
         [listId1]: [
-            {id: v1(), name: 'Bob', kurs: '2', study: true},
-            {id: v1(), name: 'John', kurs: '2', study: true},
-            {id: v1(), name: 'Den', kurs: '1', study: false},
+            // {id: v1(), name: 'Bob', kurs: '2', study: true},
+            // {id: v1(), name: 'John', kurs: '2', study: true},
+            // {id: v1(), name: 'Den', kurs: '1', study: false},
 
         ],
         [listId2]: [
-            {id: v1(), name: 'Bob', kurs: '2', study: true},
-            {id: v1(), name: 'John', kurs: '2', study: true},
-            {id: v1(), name: 'Den', kurs: '1', study: false},
+            // {id: v1(), name: 'Bob', kurs: '2', study: true},
+            // {id: v1(), name: 'John', kurs: '2', study: true},
+            // {id: v1(), name: 'Den', kurs: '1', study: false},
 
         ]
     })
