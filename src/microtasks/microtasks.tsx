@@ -29,7 +29,6 @@ const Microtasks = () => {
             // {id: v1(), name: 'Bob', kurs: '2', study: true},
             // {id: v1(), name: 'John', kurs: '2', study: true},
             // {id: v1(), name: 'Den', kurs: '1', study: false},
-
         ],
         [listId2]: [
             // {id: v1(), name: 'Bob', kurs: '2', study: true},
@@ -38,7 +37,30 @@ const Microtasks = () => {
 
         ]
     })
-
+//     <script>   Глубокое копирование!!!!!!!!!
+//     let a = {
+//         name: 'Vas9n',
+//         age: 22,
+//         addres: {
+//             city: 'Minsk',
+//             street: 'Nezalezhnasti',
+//             house: [{color: 'grey'}, {step: 19}]
+//         }
+//     }
+//     let b = {...a, addres: {...a.addres, house: [...a.addres.house]}}
+//     b.addres.city = 'New-york'
+//     b.addres.house = ['ssssssssss']
+//     // b.addres = {...a.addres}
+//     // b.addres.house = [...a.addres.house]
+//     b.addres.house.map(el => el)
+//     b.age = 30;
+//
+//     console.log(a);
+//     console.log(b);
+//
+//
+// </script>
+    // setStudents({...students, [listId]: [newStudent, ...students[listId]]})
     function addStudents(listId: string, name: string) {
         let newStudent = {id: v1(), name: name, kurs: '1', study: false};
         setStudents({...students, [listId]: [newStudent, ...students[listId]]})
