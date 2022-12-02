@@ -21,7 +21,7 @@ export const SpanInput = (props: SpanInputPropsType) => {
     }
     return (
         edit ?
-            <span onDoubleClick={onDoubleClickHandler}>{props.title}{props.name},</span>
+            <span onClick={onDoubleClickHandler}>{props.title}{props.name},</span>
             : <input className={sMap.input} onChange={onChangeHandler} value={updatedName} onBlur={onBlurHandler}
                      autoFocus/>
     );
