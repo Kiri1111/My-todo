@@ -28,21 +28,21 @@ let listId2 = v1()
 
 const Microtasks = () => {
     let [lists, dispatchLists] = useReducer(listsReducer, [
-        {id: listId1, title: 'Студенты', filter: 'all'},
-        {id: listId2, title: 'Абитуриенты', filter: 'all'},
+        // {id: listId1, title: 'Студенты', filter: 'all'},
+        // {id: listId2, title: 'Абитуриенты', filter: 'all'},
     ])
     let [students, dispatchStudents] = useReducer(studentsReducer, {
-        [listId1]: [
-            {id: v1(), name: 'Bob', kurs: '2', study: true},
-            {id: v1(), name: 'John', kurs: '2', study: true},
-            {id: v1(), name: 'Den', kurs: '1', study: false},
-        ],
-        [listId2]: [
-            {id: v1(), name: 'Bob', kurs: '2', study: true},
-            {id: v1(), name: 'John', kurs: '2', study: true},
-            {id: v1(), name: 'Den', kurs: '1', study: false},
-
-        ]
+        // [listId1]: [
+        //     {id: v1(), name: 'Bob', kurs: '2', study: true},
+        //     {id: v1(), name: 'John', kurs: '2', study: true},
+        //     {id: v1(), name: 'Den', kurs: '1', study: false},
+        // ],
+        // [listId2]: [
+        //     {id: v1(), name: 'Bob', kurs: '2', study: true},
+        //     {id: v1(), name: 'John', kurs: '2', study: true},
+        //     {id: v1(), name: 'Den', kurs: '1', study: false},
+        //
+        // ]
     })
 
     function addStudents(listId: string, name: string) {
@@ -105,7 +105,9 @@ const Microtasks = () => {
 
     return (
         <div className={s.listAll}>
-            <AddItemForm callBack={addListHandler}/>
+            <div className={s.addList}>
+                <AddItemForm callBack={addListHandler}/>
+            </div>
             {lists.map(ls => {
                 let studentsFiltered = students[ls.id];
                 if (ls.filter === '1') {

@@ -59,12 +59,13 @@
 }
 
 .nameTask {
+
     text-align: center;
 }
 
 .addTask {
+   
 
-    display: flex;
     margin-left: 30px;
 }
 

@@ -1,8 +1,13 @@
 .listAll {
     display: flex;
     flex-direction: row;
+    flex-flow: wrap;
     justify-content: space-around;
+}
 
+.addList {
+    position: absolute;
+    top: 15px
 }
 
 
