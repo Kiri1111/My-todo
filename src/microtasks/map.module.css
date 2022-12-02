@@ -42,7 +42,7 @@
 }
 
 .map {
-
+    margin: 20px 20px 20px 20px;
     border-radius: 30px;
     background-color: #6a7285;
     position: relative;
@@ -64,7 +64,7 @@
 }
 
 .addTask {
-   
+
 
     margin-left: 30px;
 }
