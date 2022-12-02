@@ -2,7 +2,6 @@ import React, {FC} from 'react';
 import {FilterValueType} from "../microtasks";
 import s from '../map.module.css'
 
-
 type PropsType = {
     callBackButton: () => void
     title: string
@@ -10,6 +9,7 @@ type PropsType = {
     name?: string
 
 }
+
 export const UniversalButton: FC<PropsType> = ({callBackButton, name, title, filter}) => {
 
     const onClickHandler = () => {

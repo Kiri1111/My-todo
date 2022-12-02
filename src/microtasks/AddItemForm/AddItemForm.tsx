@@ -34,9 +34,9 @@ export const AddItemForm = (props: AddItemFormPropsType) => {
                 value={name}
                 onChange={onchangeHandler}
                 onKeyPress={onKeyPressHandler}
-                className={error ? 'error' : ''}
+                className={error ? sMap.error : sMap.input}
             />
-            <button onClick={onClickHandler}>добавить</button>
+            <button className={sMap.button} onClick={onClickHandler}>добавить</button>
             {error && <div className={sMap.errorMessage}>{error}</div>}
         </div>
     );

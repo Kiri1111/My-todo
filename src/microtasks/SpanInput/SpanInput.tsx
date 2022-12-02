@@ -1,4 +1,5 @@
 import React, {ChangeEvent, useState} from 'react';
+import sMap from '../map.module.css'
 
 type SpanInputPropsType = {
     callBack: (updatedName: string) => void
@@ -21,7 +22,8 @@ export const SpanInput = (props: SpanInputPropsType) => {
     return (
         edit ?
             <span onDoubleClick={onDoubleClickHandler}>{props.title}{props.name},</span>
-            : <input onChange={onChangeHandler} value={updatedName} onBlur={onBlurHandler} autoFocus/>
+            : <input className={sMap.input} onChange={onChangeHandler} value={updatedName} onBlur={onBlurHandler}
+                     autoFocus/>
     );
 };
 

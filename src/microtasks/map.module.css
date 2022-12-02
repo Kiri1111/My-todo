@@ -7,21 +7,35 @@
 }
 
 .activeButton {
-    background-color: #61dafb;
+    background-color: #f74464;
+    height: 30px;
+    border-radius: 8px;
+    width: 80px;
+    border: none;
+
+    margin: 5px;
+    font-weight: bold;
 }
 
 .button {
     background-color: #c9d8f5;
+    width: 80px;
+    border: none;
+    height: 30px;
+    border-radius: 8px;
+    margin: 5px;
+    font-weight: bold;
 }
 
 .study {
-    opacity: 0.5;
+    text-decoration: line-through;
+
 }
 
 .ul {
-
-    background-color: rgba(87, 180, 188, 0.79);
-    width: 240px;
+    font-size: 20px;
+    background-color: #c4c4c4;
+    width: 340px;
     margin: 10px;
     border-radius: 10px;
 
@@ -30,16 +44,18 @@
 .map {
 
     border-radius: 30px;
-    background-color: #1D515E;
+    background-color: #6a7285;
     position: relative;
     top: 50px;
     height: auto;
-    width: 300px;
+    width: 400px;
     box-shadow: 20px 20px rgba(74, 102, 103, 0.37);
+    color: #f74464;
 }
 
 .filter {
-    text-align: center;
+    display: flex;
+    margin-left: 65px;
 }
 
 .nameTask {
@@ -47,5 +63,17 @@
 }
 
 .addTask {
-    text-align: center;
+
+    display: flex;
+    margin-left: 30px;
+}
+
+.input {
+    background-color: #c4c4c4;
+    width: 180px;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+    padding-left: 10px;
+    margin-left: 30px;
 }
