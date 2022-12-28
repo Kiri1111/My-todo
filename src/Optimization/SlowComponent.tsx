@@ -1,13 +1,18 @@
 import {ChangeEvent, FC, useState} from 'react';
+import {Simulate} from "react-dom/test-utils";
+import change = Simulate.change;
 
-
-export const Example_4 = () => {
+type PropsExampleType = {
+    children: JSX.Element
+}
+export const Example_4 = (props: PropsExampleType) => {
 
     return (
         <div>
             <div>Lags when change value</div>
             <Input/>
-            <SlowComponent/>
+            {/*<SlowComponent/>*/}
+            {props.children}
         </div>
     );
 };
@@ -25,7 +30,7 @@ const Input: FC<InputPropsType> = ({}) => {
 
 }
 
-const SlowComponent = () => {
+export const SlowComponent = () => {
     console.log('SlowComponent re-render...');
 
     let now = performance.now();
